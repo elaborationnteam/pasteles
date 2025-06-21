@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastelitos!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            margin: 0;
+        }
+        .boleto {
+            background-color: white;
+            border: 2px dashed #ff6b6b;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+        }
+        h1 {
+            color: #ff6b6b;
+            font-size: 24px;
+        }
+        .opciones {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            position: relative;
+            min-height: 50px;
+        }
+        .si {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .no {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="boleto">
+        <h1>Brindame unos pastelitos!</h1>
+        <div class="opciones">
+            <button class="si" onclick="redirigir()">Si</button>
+            <button class="no" id="noBtn" onmouseover="moverNo()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function moverNo() {
+            const btnNo = document.getElementById('noBtn');
+            const opcionesDiv = document.querySelector('.opciones');
+            
+            // Obtener dimensiones del contenedor y del bot�n
+            const containerWidth = opcionesDiv.offsetWidth;
+            const containerHeight = opcionesDiv.offsetHeight;
+            const btnWidth = btnNo.offsetWidth;
+            const btnHeight = btnNo.offsetHeight;
+            
+            // Generar posici�n aleatoria dentro del contenedor
+            const randomX = Math.floor(Math.random() * (containerWidth - btnWidth));
+            const randomY = Math.floor(Math.random() * (containerHeight - btnHeight));
+            
+            // Aplicar nueva posici�n
+            btnNo.style.left = randomX + 'px';
+            btnNo.style.top = randomY + 'px';
+        }
+        
+        function redirigir() {
+            window.location.href = "pastelitos.html";
+        }
+    </script>
+</body>
+</html>
